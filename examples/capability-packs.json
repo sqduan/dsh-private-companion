@@ -18,13 +18,13 @@
       "name": "星露谷",
       "description": "通过 blind_whale MCP 操作星露谷",
       "capabilities": [
-        "mcp:blind_whale/get_state",
-        "mcp:blind_whale/travel_to",
-        "mcp:blind_whale/water_crops",
-        "mcp:blind_whale/plant_seeds",
-        "mcp:blind_whale/fish",
-        "mcp:blind_whale/explore_mine",
-        "mcp:blind_whale/sleep"
+        "mcp__blind_whale__get_state",
+        "mcp__blind_whale__travel_to",
+        "mcp__blind_whale__water_crops",
+        "mcp__blind_whale__plant_seeds",
+        "mcp__blind_whale__fish",
+        "mcp__blind_whale__explore_mine",
+        "mcp__blind_whale__sleep"
       ],
       "promptHint": "玩星露谷先 get_state，再按状态行动；不要凭空编造坐标。",
       "defaultEnabled": false
