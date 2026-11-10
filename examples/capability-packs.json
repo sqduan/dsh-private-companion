@@ -1,0 +1,68 @@
+{
+  "packs": [
+    {
+      "id": "core",
+      "name": "陪伴核心",
+      "description": "人格、记忆、关系、生活状态",
+      "capabilities": [
+        "companion.memory_search",
+        "companion.memory_write",
+        "companion.relationship_get",
+        "companion.life_state_get"
+      ],
+      "promptHint": "涉及回忆、关系、当前状态时优先用这些能力。",
+      "defaultEnabled": true
+    },
+    {
+      "id": "stardew",
+      "name": "星露谷",
+      "description": "通过 blind_whale MCP 操作星露谷",
+      "capabilities": [
+        "mcp:blind_whale/get_state",
+        "mcp:blind_whale/travel_to",
+        "mcp:blind_whale/water_crops",
+        "mcp:blind_whale/plant_seeds",
+        "mcp:blind_whale/fish",
+        "mcp:blind_whale/explore_mine",
+        "mcp:blind_whale/sleep"
+      ],
+      "promptHint": "玩星露谷先 get_state，再按状态行动；不要凭空编造坐标。",
+      "defaultEnabled": false
+    },
+    {
+      "id": "web",
+      "name": "联网与搜索",
+      "description": "网页搜索、抓取、资讯",
+      "capabilities": [
+        "web.search",
+        "web.fetch"
+      ],
+      "promptHint": "需要最新信息时使用；引用来源。",
+      "defaultEnabled": true
+    },
+    {
+      "id": "qq",
+      "name": "QQ 通道",
+      "description": "通过 DSH QQ 插件收发消息",
+      "capabilities": [
+        "qq.send",
+        "qq.reply",
+        "qq.history"
+      ],
+      "promptHint": "发消息、回消息、查历史时使用；不要直接操作协议。",
+      "defaultEnabled": false
+    },
+    {
+      "id": "wechat",
+      "name": "微信通道",
+      "description": "通过 DSH 微信插件收发消息",
+      "capabilities": [
+        "wechat.send",
+        "wechat.login",
+        "wechat.status"
+      ],
+      "promptHint": "微信发送/登录状态查询时使用。",
+      "defaultEnabled": false
+    }
+  ]
+}

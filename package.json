@@ -1,0 +1,36 @@
+{
+  "name": "dsh-private-companion",
+  "version": "0.1.0",
+  "description": "A private companion core for DeepSeek Harness: persona context, memory, relationship, life state and capability catalog.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "docs",
+    "examples",
+    "scripts",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22.5"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "engines": {
+      "dsh": ">=0.2.0-rc.1 <0.3.0"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "node test/verify.mjs",
+    "import:astrbot": "node scripts/import-astrbot.mjs"
+  }
+}

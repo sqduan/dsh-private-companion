@@ -1,0 +1,13 @@
+# dsh-private-companion bundle patch
+# 只负责陪伴内核；渠道、主动消息、审批仍由其他 DSH 插件提供。
+- insert:
+    - id: dsh-private-companion
+      name: dsh-private-companion
+      config:
+        enabled: true
+        companionId: xiaofeiyu
+        companionName: 小肥鱼
+        ownerId: owner
+        timeZone: Asia/Shanghai
+        memoryLimit: 5
+        injectCapabilities: true
