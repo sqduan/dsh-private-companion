@@ -63,9 +63,10 @@ apply(ctx, {
 })
 
 assert.equal(sections.length, 1)
-assert.equal(tools.length, 8)
+assert.equal(tools.length, 9)
 assert.ok(tools.some((tool) => tool.name === 'companion_status'))
 assert.ok(tools.some((tool) => tool.name === 'companion_memory_write'))
+assert.ok(tools.some((tool) => tool.name === 'companion_capability_pack_set'))
 assert.ok(events.some((event) => event.name === 'session/event'))
 
 const text = sections[0].text({

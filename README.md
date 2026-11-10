@@ -86,6 +86,7 @@ dsh plugin --profile web add link:/home/cheems/Deepseek/dsh-private-companion
 - `companion_capability_search`
 - `companion_capability_describe`
 - `companion_capability_packs`
+- `companion_capability_pack_set`
 
 ## 测试
 
