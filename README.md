@@ -101,3 +101,30 @@ node scripts/import-astrbot.mjs
 ```
 
 默认只导入用户原话里较有意义的内容；`--include-replies` 会连助手回复一起导入。
+
+
+## 绑定范围（推荐 agentPreset）
+
+插件支持三种绑定：
+
+| bindMode | 含义 | 建议 |
+|---|---|---|
+| `global` | 所有 DSH 会话都注入陪伴上下文 | 默认，先保证能看到 |
+| `agentPreset` | 只绑定 `session.header.agentPreset` 匹配的 Agent | **推荐** |
+| `session` | 只绑定一个具体 session id | 临时测试 / 特殊会话 |
+
+DSH 的 Agent 是 session-backed 的，`agent.id` 就是 session id；真正稳定、可跨会话复用的是 **agentPreset**。  
+所以推荐把陪伴插件绑定到「小肥鱼」用的 agent preset，而不是某一个 session。
+
+配置项：
+
+- `bindMode`：`global` / `agentPreset` / `session`
+- `agentPreset`：要匹配的 preset id；留空时退化为全局
+- `sessionId`：`session` 模式下要匹配的 session id
+- `companionId` / `companionName`
+- `ownerId`
+- `timeZone`
+- `memoryLimit`
+- `injectCapabilities`
+
+`companion_status` 会显示当前 session id、agentPreset 和当前绑定配置，方便复制。

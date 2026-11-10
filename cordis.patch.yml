@@ -8,6 +8,9 @@
         companionId: xiaofeiyu
         companionName: 小肥鱼
         ownerId: owner
+        bindMode: global
+        agentPreset: ''
+        sessionId: ''
         timeZone: Asia/Shanghai
         memoryLimit: 5
         injectCapabilities: true
