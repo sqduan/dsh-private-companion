@@ -109,16 +109,17 @@ node scripts/import-astrbot.mjs
 
 | bindMode | 含义 | 建议 |
 |---|---|---|
-| `global` | 所有 DSH 会话都注入陪伴上下文 | 默认，先保证能看到 |
+| `global` | 所有 DSH 会话都注入陪伴上下文 | 兼容模式 |
 | `agentPreset` | 只绑定 `session.header.agentPreset` 匹配的 Agent | **推荐** |
-| `session` | 只绑定一个具体 session id | 临时测试 / 特殊会话 |
+| `session` | 每个 session 独立绑定、独立关系卡 | **推荐** |
 
-DSH 的 Agent 是 session-backed 的，`agent.id` 就是 session id；真正稳定、可跨会话复用的是 **agentPreset**。  
-所以推荐把陪伴插件绑定到「小肥鱼」用的 agent preset，而不是某一个 session。
+DSH 的 Agent 是 session-backed 的，`agent.id` 就是 session id。  
+陪伴的「她」应该跟着 session 走：每个聊天窗口有自己的关系和记忆；新 session 默认独立，不共享同一段关系。
 
 配置项：
 
-- `bindMode`：`global` / `agentPreset` / `session`
+- `bindMode`：`global` / `agentPreset` / `session`（默认 `session`）
+- `autoBindSessions`：session 模式下第一次见到会话时自动建立绑定
 - `agentPreset`：要匹配的 preset id；留空时退化为全局
 - `sessionId`：`session` 模式下要匹配的 session id
 - `companionId` / `companionName`
@@ -128,3 +129,20 @@ DSH 的 Agent 是 session-backed 的，`agent.id` 就是 session id；真正稳�
 - `injectCapabilities`
 
 `companion_status` 会显示当前 session id、agentPreset 和当前绑定配置，方便复制。
+
+
+### 会话绑定
+
+`bindMode: session` 时，每个 DSH session 可以有独立绑定：
+
+- 第一次见到 session 时，如果 `autoBindSessions: true`，会自动建立绑定
+- 配置了 `sessionId` 时，这个 session 使用 `ownerId`，其他 session 使用 `session:<id>`，从而各自有独立关系卡
+- 也可以用工具手动管理：
+
+```
+companion_session_bind
+companion_session_list
+companion_session_unbind
+```
+
+对 QQ/微信：渠道插件只要把每个好友/群映射到固定的 DSH session，陪伴就会跟着这个 session 走。渠道插件如果能把 peer id 传进来，后续可以在 bind 时写入 `channel` / `peer_id`。

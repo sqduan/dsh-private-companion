@@ -8,7 +8,8 @@
         companionId: xiaofeiyu
         companionName: 小肥鱼
         ownerId: owner
-        bindMode: global
+        bindMode: session
+        autoBindSessions: true
         agentPreset: ''
         sessionId: ''
         timeZone: Asia/Shanghai
